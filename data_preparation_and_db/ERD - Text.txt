@@ -1,0 +1,23 @@
++-----------------------+
+       |         USERS         | (الجدول الرئيسي - الأب)
+       +-----------------------+
+       | PK  user_id           |
+       |     full_name         |
+       |     age               |
+       |     emergency_contact |
+       +-----------------------+
+                  |
+                  |  علاقة واحد إلى متعدد (1 : N)
+                  |  عن طريق الـ Foreign Key (user_id)
+                  +-------------------------------------------------------------+
+                  |                 |                   |                       |
+                  v                 v                   v                       v
+       +-------------------+ +-------------------+ +-------------------+ +-------------------+
+       |    SENSOR_LOGS    | |    FALL_ALERTS    | |    CARE_PLANS     | |     CHECK_INS     |
+       +-------------------+ +-------------------+ +-------------------+ +-------------------+
+       | PK  log_id        | | PK  alert_id      | | PK  reminder_id   | | PK  checkin_id    |
+       | FK  user_id       | | FK  user_id       | | FK  user_id       | | FK  user_id       |
+       |     timestamp     | |     detected_time | |     task_type     | |     expected_time |
+       |     activity_type | |     confidence    | |     scheduled_time| |     actual_time   |
+       |     sensor_value  | |     status        | |     is_completed  | |     status        |
+       +-------------------+ +-------------------+ +-------------------+ +-------------------+
