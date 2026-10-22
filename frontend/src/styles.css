@@ -1,0 +1,74 @@
+:root{--ink:#16323a;--paper:#f2f6f5;--line:#cfdcd9;--teal:#1f7a73;
+--Normal:#2f9e6e;--Low:#7aa83a;--Medium:#d89b00;--High:#d9622b;--Critical:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 "Atkinson Hyperlegible",system-ui,sans-serif}
+[dir=rtl] body{font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic",system-ui,sans-serif}
+.app{max-width:1100px;margin:0 auto;padding:24px 16px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px}
+header h1{margin:0;font-size:2rem}header p{margin:0;flex:1}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:6px;padding:6px 12px}
+button:hover{background:var(--ink);color:#fff}button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.bar{display:flex;height:48px;margin:20px 0 8px;border-radius:8px;overflow:hidden}
+.bar div{display:grid;place-items:center;color:#fff;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;list-style:none;padding:0;margin:0 0 20px}
+.legend li::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:6px;background:currentColor}
+[data-level=Normal]{--c:var(--Normal)}[data-level=Low]{--c:var(--Low)}[data-level=Medium]{--c:var(--Medium)}
+[data-level=High]{--c:var(--High)}[data-level=Critical]{--c:var(--Critical)}
+.bar div,.legend li{background:none}.bar div{background:var(--c)}.legend li{color:var(--c)}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px}
+@media(max-width:760px){main{grid-template-columns:1fr}}
+h2{font-size:1.25rem;margin:0 0 8px}h3{margin:16px 0 4px}
+ul{padding-inline-start:20px}.people,.alerts{list-style:none;padding:0;margin:0}
+.row{display:flex;align-items:center;gap:12px;width:100%;text-align:start;margin-bottom:6px;border-color:var(--line)}
+.row.on{border-color:var(--ink)}.row:hover{background:#e3eeec;color:var(--ink)}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--c)}
+.name{flex:1}.name small{display:block;opacity:.7}.lvl{font-weight:700;color:var(--c)}
+.detail{border-inline-start:8px solid var(--c);background:#fff;padding:12px 16px;margin-bottom:28px;
+border-start-start-radius:0;border-end-start-radius:0;border-start-end-radius:8px;border-end-end-radius:8px}
+.big{font-size:1.4rem;font-weight:700;color:var(--c);margin:0}.big small{color:var(--ink);font-weight:400}
+.next{font-weight:700}.actions{display:flex;flex-wrap:wrap;gap:8px}
+.alerts li{border-inline-start:6px solid var(--c);background:#fff;padding:8px 12px;margin-bottom:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.alerts li.acknowledged{opacity:.55}.alerts button{margin-inline-start:auto}
+.empty{opacity:.75}.error{background:#fbe3e0;border:2px solid var(--Critical);padding:8px 12px;border-radius:6px}
+@media(prefers-reduced-motion:no-preference){.bar div{transition:flex .4s}}
+
+.note{font-size:.9rem;opacity:.75;margin:0 0 8px}
+.plan{list-style:none;padding:0;margin:0 0 12px}
+.plan li{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line)}
+.plan li.done label{text-decoration:line-through;opacity:.6}.plan .t{font-weight:700;margin:0 4px}
+.plan input[type=checkbox]{width:20px;height:20px;vertical-align:middle;margin-inline-end:6px}
+.add{display:flex;flex-wrap:wrap;gap:8px}.add input,.add select{font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:6px;background:#fff}
+.add input[placeholder]{flex:1;min-width:160px}
+
+.plan li.overdue{background:#fdf0e8}.od{color:var(--High)}
+
+header nav{display:flex;gap:6px;flex:1}.tab{border-color:var(--line)}.tab.on{background:var(--ink);color:#fff}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.top p{margin:0}
+.login{max-width:360px;margin:12vh auto;display:grid;gap:10px}.login h1{margin:0}
+.login input{font:inherit;padding:8px 10px;border:2px solid var(--line);border-radius:6px}
+.hist{list-style:none;padding:0;margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px 14px}.hist b{color:var(--c)}
+.steps{display:flex;align-items:center;gap:4px;margin-top:6px;font-size:.9rem}.steps i{width:22px;height:8px;border-radius:4px;background:var(--line)}
+.steps i.on{background:var(--c)}.steps span{margin-inline-start:8px}
+.chart{display:flex;align-items:flex-end;gap:12px;height:170px;margin:12px 0}.chart div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.chart i{width:34px;background:var(--teal);border-radius:4px 4px 0 0}.when{display:block;opacity:.7}
+
+.admin h3{margin-top:24px}.admin .plan select{font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:6px;background:#fff}
+
+.chart.thin{height:140px;gap:3px}.chart.thin i{width:12px}.chart.thin small{font-size:.7rem}
+.elder{max-width:520px;margin:0 auto;padding:24px 16px;font-size:22px}.elder h1{font-size:2rem}
+.big-btn{width:100%;font-size:1.4rem;padding:18px;margin:10px 0;border-radius:10px}
+.ok-btn{background:var(--Normal);border-color:var(--Normal);color:#fff}.help-btn{background:var(--Critical);border-color:var(--Critical);color:#fff;margin-top:28px}
+.ok-btn:hover,.help-btn:hover{filter:brightness(.9);background:inherit;color:#fff}
+.banner{border-inline-start:10px solid var(--Medium);background:#fff;padding:8px 16px;border-start-start-radius:0;border-end-start-radius:0;border-start-end-radius:10px;border-end-end-radius:10px;margin:12px 0}
+.done-msg{color:var(--Normal);font-weight:700}.code{font:inherit;font-size:2rem;letter-spacing:.4em;text-align:center;width:100%;padding:12px;border:3px solid var(--ink);border-radius:10px}
+.plan.big li{padding:12px 0}.plan.big input[type=checkbox]{width:30px;height:30px}
+
+/* language picker and the Settings page */
+.lang{font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.login .lang{justify-self:start}
+.elder .lang{width:auto;font-size:1rem;padding:4px 8px;display:block;margin-inline-start:auto}
+.elder-lang{margin-bottom:8px}
+.langs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+.langs button{min-width:120px}
+.settings{max-width:640px}
+.settings h3{margin-top:16px}

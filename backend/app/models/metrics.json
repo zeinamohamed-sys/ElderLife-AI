@@ -1,0 +1,65 @@
+{
+ "risk": {
+  "auc": {
+   "model": 0.941,
+   "rules": 0.914
+  },
+  "average_precision": {
+   "model": 0.811,
+   "rules": 0.734
+  },
+  "matched_recall": {
+   "target_recall": 0.699,
+   "rules": {
+    "alerts": 401,
+    "tp": 321,
+    "fp": 80,
+    "fn": 138,
+    "precision": 0.8,
+    "recall": 0.699,
+    "false_alerts_per_1000": 13.3
+   },
+   "model": {
+    "alerts": 378,
+    "tp": 321,
+    "fp": 57,
+    "fn": 138,
+    "precision": 0.849,
+    "recall": 0.699,
+    "false_alerts_per_1000": 9.5
+   }
+  },
+  "prevalence": 0.0758
+ },
+ "pose": {
+  "model_accuracy": 0.98,
+  "rules_accuracy": 0.943,
+  "fall_model": {
+   "precision": 0.996,
+   "recall": 0.992
+  },
+  "fall_rules": {
+   "precision": 0.878,
+   "recall": 0.982
+  }
+ },
+ "anomaly": {
+  "personal_baseline": {
+   "tau": 4.0,
+   "f1": 0.99,
+   "precision": 1.0,
+   "recall": 0.98,
+   "auc": 1.0,
+   "test_days": 1140
+  },
+  "population_threshold": {
+   "tau": 1.5,
+   "f1": 0.809,
+   "precision": 0.709,
+   "recall": 0.941,
+   "auc": 0.989,
+   "test_days": 1140
+  }
+ },
+ "data": "synthetic"
+}
